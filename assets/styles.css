@@ -1,0 +1,829 @@
+
+    :root {
+      --bg: #f5f5f5;
+      --text: #306230;
+      --text-dark: #0F380F;
+      --primary: #9BBD3B;
+      --accent: #E87F00;
+      --error: #CC4125;
+      --white: #FFFFFF;
+      --beige: #f2eecb;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inconsolata', monospace;
+      background: var(--bg);
+      line-height: 1.6;
+      font-size: 18px;
+      -webkit-font-smoothing: auto;
+    }
+
+    h1, h2, h3 {
+      font-family: 'VT323', monospace;
+      color: var(--text);
+      line-height: 1.4;
+    }
+
+    h1 {
+      font-size: clamp(2.1rem, 10vw, 3rem);
+      font-weight: lighter;
+    }
+
+    h2 {
+      /* font-family: 'Bebas Neue', sans-serif; */
+
+      font-size: clamp(2.1rem, 10vw, 3rem);
+      font-weight: lighter;
+      margin-bottom: 1rem;
+    }
+
+    h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      font-family: 'Inconsolata', monospace;
+      line-height: 1.7;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    section {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* Hero — stacked boxes */
+    .hero {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 1rem 1.5rem 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      border-top: none;
+    }
+
+    .hero-photo {
+      aspect-ratio: 16 / 9;
+      background: url('cannes.jpeg') center/cover no-repeat;
+      border: 1px solid var(--text);
+    }
+
+    .hero-panel {
+      background: var(--beige);
+      border: 1px solid var(--text);
+
+    }
+
+    .hero-panel h1 {
+      /* font-family: "Archivo Black", sans-serif; */
+      color: var(--text);
+      font-size: 2.4rem;
+      margin-bottom: 1rem;
+      line-height: 1.3;
+      font-weight: lighter;
+
+    }
+
+    .hero-panel .subtitle {
+      font-size: 1.3rem;
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    .hero-pain {
+      background: var(--primary);
+      border: 1px solid var(--text);
+      padding: 0.9rem 0.9rem;
+      overflow: hidden;
+    }
+
+    .pain-carousel {
+      overflow: hidden;
+    }
+
+    .pain-track {
+      display: inline-flex;
+      white-space: nowrap;
+      animation: pain-scroll 48s linear infinite;
+    }
+
+    .pain-carousel:hover .pain-track {
+      animation-play-state: paused;
+    }
+
+    .pain-slide {
+      font-family: 'VT323', monospace;
+      font-size: 1.8rem;
+      line-height: 1.3;
+      color: var(--text);
+      white-space: nowrap;
+      padding-right: 2.5rem;
+      margin: 0;
+    }
+
+    @keyframes pain-scroll {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .pain-track {
+        animation: none;
+      }
+    }
+
+    .hero-message {
+      margin-bottom: 1.5rem;
+      margin-left: .3rem;
+      margin-top: .3rem;
+      /* font-size: 1.3rem; */
+      color: var(--error);
+    }
+
+    .hero-cta {
+      display: flex;
+      justify-content: center;
+    }
+
+    .cta-button {
+      display: inline-block;
+      padding: 0.9rem 2.5rem;
+      font-family: 'Inconsolata', monospace;
+      font-size: 1.3rem;
+      font-weight: 700;
+      background: var(--accent);
+      color: var(--white);
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: background 0.2s, border-color 0.2s, filter 0.2s;
+    }
+
+    .cta-button:hover {
+      background: var(--accent);
+      filter: brightness(0.92);
+      text-decoration: none;
+    }
+
+    /* Brand lockup above the boxes */
+    .hero header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .brand-icon {
+      height: 48px;
+      width: 48px;
+      display: block;
+    }
+
+    .hero header .logo {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 1.5rem;
+      color: black;
+    }
+
+    #solution {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 2.5rem;
+      max-width: 900px;
+      padding: 0 1.5rem 2rem;
+      border-bottom: 2px solid var(--text);
+    }
+
+    #solution h2 {
+      font-size: 3rem;
+    }
+
+    #solution .solution-photo {
+      display: block;
+      flex: 0 0 auto;
+      width: auto;
+      height: auto;
+      max-width: 560px;
+      max-height: 80svh;
+      border: 1px solid var(--text);
+    }
+
+    #solution .solution-copy {
+      flex: 1 1 auto;
+      min-width: 0;
+      color: var(--text);
+      padding: 1.5rem;
+    }
+
+    @media (max-width: 1080px) {
+      #solution {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1.5rem;
+      }
+
+      #solution .solution-photo {
+        max-width: 100%;
+        margin: 0 auto;
+      }
+    }
+
+    @media (min-width: 768px) {
+      #solution {
+        padding: 2rem;
+      }
+    }
+
+    .section-media {
+      display: block;
+      max-width: 100%;
+      height: auto;
+      margin: 2rem auto 1rem;
+      border: 1px solid var(--text);
+    }
+
+    /* Sections */
+    section {
+      padding: 2.5rem 0;
+      border-top: 2px solid var(--text);
+    }
+
+    /* Solution */
+    .solution-text {
+      font-size: 1.5rem;
+      color: var(--text-dark);
+    }
+
+    .solution-accent {
+      font-family: "VT323", monospace;
+      background-color: var(--primary);
+      border: 1px var(--text) solid;
+      color: var(--text);
+      padding: .6rem;
+    }
+
+    /* Steps */
+    .steps {
+      list-style: none;
+      counter-reset: step;
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    .steps li {
+      counter-increment: step;
+      border: 1px solid var(--primary);
+      background: var(--beige);
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+    }
+
+    .steps li::before {
+      content: counter(step);
+      flex: 0 0 5rem;
+      width: 5rem;
+      height: 5rem;
+      background: var(--primary);
+      color: var(--text);
+      font-family: 'Press Start 2P', monospace;
+      font-size: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .step-text {
+      color: var(--text);
+      margin: 0;
+      flex: 1;
+      font-size: 1.5rem;
+      font-family: 'VT323', monospace;
+    }
+
+    /* Features grid */
+    .features-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-auto-rows: 1fr;
+      gap: 1.5rem;
+    }
+
+    @media (min-width: 500px) {
+      .features-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .feature-item {
+      border: 1px solid var(--text);
+      background: var(--white);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .feature-header {
+      background: var(--primary);
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+    }
+
+    .feature-icon {
+      flex: 0 0 5rem;
+      width: 5rem;
+      height: 5rem;
+      background: var(--text);
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .feature-icon svg {
+      width: 36px;
+      height: 36px;
+      display: block;
+    }
+
+    .feature-item h3 {
+      color: var(--text);
+      margin: 0;
+      font-weight: lighter;
+      font-size: 1.5rem;
+      line-height: 1.3;
+    }
+
+    .feature-desc {
+      height: 100%;
+      background: var(--beige);
+      border-top: 1px solid var(--text);
+      padding: 0.75rem 1rem 1rem;
+    }
+
+    .feature-desc p {
+      margin: 0;font-size: 1rem;
+    }
+
+    /* Benefits */
+    .benefits-list {
+      list-style: none;
+    }
+
+    .benefits-list li {
+      margin-bottom: 1.5rem;
+      padding-left: 1.5rem;
+      border-left: 4px solid var(--primary);
+    }
+
+    .benefits-list li h3 {
+      font-size: 1.1rem;
+    }
+
+    /* CTA */
+    .cta {
+      text-align: center;
+      background: var(--accent); /*rgb(180, 0, 100);*/
+      color: whitesmoke;
+      max-width: 100%;
+      width: 100%;
+      border: 0;
+    }
+
+    .cta .container {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    .cta h2 {
+      color: whitesmoke;
+    }
+
+    .cta p {
+      margin-bottom: 1.5rem;
+      font-size: 1.5rem;
+    }
+
+    .cta .highlight {
+      background: var(--primary);
+      border: 1px solid var(--text);
+      color: var(--text);
+      padding: 0.15rem 0.4rem;
+      font-weight: lighter;
+      font-size: 1.8rem;
+      font-family: "VT323", monospace;
+    }
+
+    .cta .section-media {
+      margin: 0 auto 1.5rem;
+    }
+
+    /* Form */
+    .waitlist-form {
+      display: flex;
+      gap: 0;
+      max-width: 480px;
+      margin: 2rem auto 0;
+    }
+
+    .waitlist-form input[type="email"] {
+      flex: 1;
+      padding: 0.8rem 1rem;
+      font-family: 'Inconsolata', monospace;
+      font-size: 1rem;
+      border: 1px solid var(--text);
+      border-right: none;
+      background: var(--white);
+      color: var(--text);
+      outline: none;
+      border-radius: 0;
+    }
+
+    .waitlist-form input[type="email"]:focus {
+      border-color: var(--accent);
+    }
+
+    .waitlist-form input[type="email"]::placeholder {
+      color: #999;
+    }
+
+    .waitlist-form button {
+      padding: 0.8rem 1.5rem;
+      font-family: 'Inconsolata', monospace;
+      font-size: 1rem;
+      background: var(--text);
+      color: var(--bg);
+      border: 1px solid var(--text);
+      cursor: pointer;
+      white-space: nowrap;
+      border-radius: 0;
+    }
+
+    .waitlist-form button:hover {
+      background: var(--text);
+    }
+
+    .waitlist-form button:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    .honeypot {
+      position: absolute;
+      left: -9999px;
+      opacity: 0;
+      height: 0;
+      width: 0;
+      overflow: hidden;
+    }
+
+    .form-message {
+      margin-top: 1rem;
+      font-family: 'Inconsolata', monospace;
+      font-size: 1rem;
+    }
+
+    .form-message.success {
+      color: var(--primary);
+    }
+
+    .form-message.error {
+      color: var(--error);
+    }
+
+    /* FAQ */
+    .faq {
+      border: 0;
+    }
+
+    .faq-item {
+      border: 1px solid var(--text);
+      background: var(--text);
+      margin-bottom: 1.5rem;
+    }
+
+    .faq-item summary {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 0;
+      cursor: pointer;
+      list-style: none;
+    }
+
+    .faq-item summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .faq-item summary::before {
+      content: '+';
+      flex: 0 0 5rem;
+      width: 5rem;
+      height: 5rem;
+      background: var(--primary);
+      color: var(--text);
+      font-family: 'Press Start 2P', monospace;
+      font-size: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .faq-item[open] summary::before {
+      content: '-';
+    }
+
+    .faq-question {
+      background: var(--text);
+      flex: 1;
+      margin: 0;
+      padding: 0.75rem 1rem;
+      font-family: 'VT323', monospace;
+      font-size: 1.4rem;
+      color: var(--primary);
+    }
+
+    .faq-item .faq-answer {
+      background: var(--beige);
+      border-top: 1px solid var(--text);
+      padding: 0.75rem 1rem 1rem;
+      font-family: 'Inconsolata', monospace;
+      font-size: 0.95rem;
+      color: var(--text);
+    }
+
+    /* Press */
+    .press-list {
+      list-style: none;
+    }
+
+    .press-list li {
+      margin-bottom: 1.5rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--text);
+    }
+
+    .press-list li:last-child {
+      border-bottom: none;
+    }
+
+    .press-list .press-source {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 0.55rem;
+      color: var(--accent);
+      text-transform: uppercase;
+      margin-bottom: 0.3rem;
+      display: block;
+    }
+
+    .press-list .press-title {
+      font-family: 'VT323', monospace;
+      font-size: 1.3rem;
+      color: var(--text);
+    }
+
+    .press-list .press-desc {
+      font-family: 'Inconsolata', monospace;
+      font-size: 0.9rem;
+      margin-top: 0.3rem;
+    }
+
+    /* Reviews carousel */
+    .reviews-section {
+      overflow: hidden;
+      border-top: none;
+      padding: 2.5rem 0;
+      max-width: 100vw;
+    }
+
+    .reviews-section h2 {
+      text-align: center;
+      padding: 0 1.5rem;
+    }
+
+    .carousel-wrapper {
+      position: relative;
+      margin-top: 1.5rem;
+      margin-left: auto;
+      margin-right: auto;
+      max-width: calc(10 * 350px + 9 * 2rem);
+    }
+
+    .carousel-track {
+      display: flex;
+      gap: 2rem;
+      overflow-x: auto;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      padding: 1rem 0;
+    }
+
+    .carousel-track::-webkit-scrollbar {
+      display: none;
+    }
+
+    .carousel-item {
+      width: 350px;
+      height: 700px;
+      flex-shrink: 0;
+      border: 1px solid var(--text);
+      overflow: hidden;
+    }
+
+    .carousel-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .carousel-fade-left,
+    .carousel-fade-right {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 100px;
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    .carousel-fade-left {
+      left: 0;
+      background: linear-gradient(to right, var(--bg), transparent);
+    }
+
+    .carousel-fade-right {
+      right: 0;
+      background: linear-gradient(to left, var(--bg), transparent);
+    }
+
+    /* Reviews mobile gallery */
+    .reviews-gallery {
+      display: none;
+      margin-top: 1.5rem;
+    }
+
+    .reviews-gallery-track {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      gap: 0.5rem;
+      padding: 1rem 7.5vw;
+    }
+
+    .reviews-gallery-track::-webkit-scrollbar {
+      display: none;
+    }
+
+    .reviews-gallery-item {
+      flex: 0 0 85vw;
+      scroll-snap-align: center;
+      height: 500px;
+      border: 1px solid var(--text);
+      overflow: hidden;
+    }
+
+    .reviews-gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .reviews-dots {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+
+    .reviews-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--text);
+      opacity: 0.3;
+      cursor: pointer;
+      border: none;
+      padding: 0;
+      transition: opacity 0.3s;
+    }
+
+    .reviews-dot.active {
+      opacity: 1;
+      background: var(--accent);
+    }
+
+    /* Footer */
+    footer {
+      padding: 2rem 0;
+      text-align: center;
+      color: var(--text);
+      border-top: 2px solid var(--text);
+    }
+
+    footer p {
+      font-family: 'VT323', monospace;
+      font-size: 1.2rem;
+
+
+    }
+
+    /* Mobile adjustments */
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 1.4rem;
+      }
+
+      .hero {
+        padding: 2rem 1.25rem 1.5rem;
+        gap: 1rem;
+      }
+
+      .hero-panel h1 {
+        font-size: 1.5rem;
+      }
+
+      .hero-panel .subtitle {
+        font-size: 1.1rem;
+      }
+
+      .pain-slide {
+        font-size: 1.6rem;
+      }
+
+      .hero-message {
+        font-family: 'VT323', monospace;
+        font-size: 1.6rem;
+      }
+
+      .cta-button {
+        padding: 0.8rem 2rem;
+        font-size: 1rem;
+      }
+
+      .brand-icon {
+        height: 1.8rem;
+      }
+
+      .hero header .logo {
+        font-size: 1rem;
+      }
+
+      .waitlist-form {
+        flex-direction: column;
+      }
+
+      .waitlist-form input[type="email"] {
+        border-right: 2px solid var(--text);
+        border-bottom: none;
+      }
+
+      .waitlist-form input[type="email"]:focus {
+        border-color: var(--accent);
+      }
+
+      .waitlist-form button {
+        width: 100%;
+      }
+
+      .carousel-wrapper {
+        display: none;
+      }
+
+      .reviews-gallery {
+        display: block;
+      }
+    }
+
+    @media (min-width: 481px) {
+      .reviews-gallery {
+        display: none !important;
+      }
+    }
+  
