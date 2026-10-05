@@ -176,37 +176,61 @@
     })();
 
     (function() {
-      var painPoints = [
-        '« Ils n\'ont pas envoyé de message… Est-ce qu\'ils sont bien entrés ? »',
-        '« J\'espère qu\'ils ont bien refermé la boîte à clés et brouillé le code, pour que personne ne puisse simplement partir avec. »',
-        '« Et si la ville l\'avait retirée juste avant l\'arrivée de mes voyageurs ? »'
+      var phrases = [
+        'récupéré les clés',
+        'brouillé le code',
+        'remis les clés'
       ];
 
-      var painPoints2 = [
-        "Est-ce qu\'ils sont bien entrés ? »'",
-        "Est-ce qu'ils ont refermé la boîte à clés et brouillé le code",
-        "Est-ce qu'ils ont recupere le cadenas ?",
-        "Est-ce que les cles ont ete remis dans la boite ?"
-      ]
+      var el = document.getElementById('painpoint-display');
+      if (!el || !phrases.length) return;
 
-      var track = document.getElementById('pain-track');
-      if (!track) return;
+      var index = 0;
+      var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-      if (!painPoints.length) {
-        track.style.display = 'none';
+      if (reduce) {
+        el.textContent = phrases[0];
+        setInterval(function() {
+          index = (index + 1) % phrases.length;
+          el.textContent = phrases[index];
+        }, 3000);
         return;
       }
 
-      var frag = document.createDocumentFragment();
-      for (var set = 0; set < 2; set++) {
-        for (var i = 0; i < painPoints.length; i++) {
-          var p = document.createElement('p');
-          p.className = 'pain-slide';
-          p.textContent = painPoints[i];
-          if (set === 1) p.setAttribute('aria-hidden', 'true');
-          frag.appendChild(p);
+      var TYPE_MS = 70;
+      var HOLD_MS = 2400;
+      var DELETE_MS = 30;
+      var GAP_MS = 300;
+
+      function typePhrase() {
+        var phrase = phrases[index];
+        var i = 0;
+        el.textContent = '';
+
+        function typeChar() {
+          if (i <= phrase.length) {
+            el.textContent = phrase.slice(0, i);
+            i++;
+            setTimeout(typeChar, TYPE_MS);
+          } else {
+            setTimeout(deleteChars, HOLD_MS);
+          }
         }
+
+        function deleteChars() {
+          var current = el.textContent;
+          if (current.length > 0) {
+            el.textContent = current.slice(0, -1);
+            setTimeout(deleteChars, DELETE_MS);
+          } else {
+            index = (index + 1) % phrases.length;
+            setTimeout(typePhrase, GAP_MS);
+          }
+        }
+
+        typeChar();
       }
-      track.appendChild(frag);
+
+      typePhrase();
     })();
   
