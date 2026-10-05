@@ -181,14 +181,25 @@
       border-bottom: 2px solid var(--text);
     }
 
+    .pain-section h2 {
+      text-align: center;
+    }
+
     .painpoint-display {
       display: inline-block;
       white-space: nowrap;
-      min-width: 18ch;
+      line-height: 1;
+      min-width: calc(21ch + 1.2rem + 2px);
     }
 
     .painpoint-display::after {
-      content: '▌';
+      content: '';
+      display: inline-block;
+      width: 0.45em;
+      height: 0.95em;
+      margin-left: 0.08em;
+      background: currentColor;
+      vertical-align: -0.2em;
       animation: blink 1s step-end infinite;
     }
 

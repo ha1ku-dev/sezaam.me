@@ -177,9 +177,9 @@
 
     (function() {
       var phrases = [
-        'récupéré les clés',
-        'brouillé le code',
-        'remis les clés'
+        'récupéré les clés ?',
+        'brouillé le code ?',
+        'remis les clés ?'
       ];
 
       var el = document.getElementById('painpoint-display');
