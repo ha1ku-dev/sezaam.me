@@ -110,6 +110,8 @@
       var autoTimer;
       var isUserScrolling = false;
       var scrollTimeout;
+      var inView = false;
+      var pageVisible = !document.hidden;
 
       for (var i = 0; i < total; i++) {
         var dot = document.createElement('button');
@@ -121,20 +123,53 @@
 
       var dots = dotsContainer.querySelectorAll('.reviews-dot');
 
+      function updateDots(index) {
+        for (var j = 0; j < dots.length; j++) {
+          dots[j].classList.toggle('active', j === index);
+        }
+      }
+
+      // Scroll only the track horizontally — never the page itself.
+      function scrollToItem(item) {
+        var trackRect = track.getBoundingClientRect();
+        var itemRect = item.getBoundingClientRect();
+        var delta = itemRect.left - trackRect.left;
+        var left = track.scrollLeft + delta - (track.clientWidth - itemRect.width) / 2;
+        var maxScroll = track.scrollWidth - track.clientWidth;
+        if (left < 0) left = 0;
+        if (left > maxScroll) left = maxScroll;
+        track.scrollTo({ left: left, behavior: 'smooth' });
+      }
+
+      function nearestIndex() {
+        var trackRect = track.getBoundingClientRect();
+        var center = trackRect.left + trackRect.width / 2;
+        var best = 0;
+        var bestDist = Infinity;
+        for (var j = 0; j < total; j++) {
+          var r = items[j].getBoundingClientRect();
+          var dist = Math.abs(r.left + r.width / 2 - center);
+          if (dist < bestDist) {
+            bestDist = dist;
+            best = j;
+          }
+        }
+        return best;
+      }
+
       function goTo(index) {
         if (index < 0) index = total - 1;
         if (index >= total) index = 0;
         current = index;
-        items[current].scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
-        for (var j = 0; j < dots.length; j++) {
-          dots[j].classList.toggle('active', j === current);
-        }
+        scrollToItem(items[current]);
+        updateDots(current);
       }
 
       function startAuto() {
         clearTimeout(autoTimer);
+        if (!inView || !pageVisible) return;
         autoTimer = setTimeout(function() {
-          if (!isUserScrolling) {
+          if (!isUserScrolling && inView && pageVisible) {
             goTo(current + 1);
           }
           startAuto();
@@ -159,17 +194,36 @@
         clearTimeout(autoTimer);
         scrollTimeout = setTimeout(function() {
           isUserScrolling = false;
-          var scrollLeft = track.scrollLeft;
-          var itemWidth = items[0].offsetWidth + 4;
-          var nearest = Math.round(scrollLeft / itemWidth);
+          var nearest = nearestIndex();
           if (nearest !== current) {
             current = nearest;
-            for (var j = 0; j < dots.length; j++) {
-              dots[j].classList.toggle('active', j === current);
-            }
+            updateDots(current);
           }
           resetAuto();
         }, 100);
+      });
+
+      if ('IntersectionObserver' in window) {
+        var observer = new IntersectionObserver(function(entries) {
+          inView = entries[0].isIntersecting;
+          if (inView) {
+            startAuto();
+          } else {
+            clearTimeout(autoTimer);
+          }
+        }, { threshold: 0 });
+        observer.observe(gallery);
+      } else {
+        inView = true;
+      }
+
+      document.addEventListener('visibilitychange', function() {
+        pageVisible = !document.hidden;
+        if (pageVisible) {
+          startAuto();
+        } else {
+          clearTimeout(autoTimer);
+        }
       });
 
       startAuto();
