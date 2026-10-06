@@ -239,6 +239,8 @@
         <button type="submit" id="submit-btn">Me contacter</button>
       </form>
       <div id="form-message" class="form-message"></div>
+      <p class="privacy-note">Vos données ne sont utilisées que pour vous recontacter — <a
+          href="confidentialite.html">en savoir plus</a>.</p>
     </div>
 
   </section>
@@ -291,11 +293,26 @@
 
   <!-- Footer -->
   <footer>
-    <p>powered by sezaam · fait avec ❤️ sur la Côte d'Azur 🏝️</p>
+    <p>powered by sezaam · fait avec ❤️ sur la Côte d'Azur 🏝️ · <a href="confidentialite.html">Confidentialité</a></p>
   </footer>
 
 
   <script src="assets/app.js"></script>
+
+  <!-- Analytics — Matomo auto-hébergé, sans cookies (voir confidentialite.html) -->
+  <script>
+    var _paq = window._paq = window._paq || [];
+    _paq.push(['disableCookies']);
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function () {
+      var u = "https://analytics.ha1ku.dev/";
+      _paq.push(['setTrackerUrl', u + 'matomo.php']);
+      _paq.push(['setSiteId', '1']);
+      var d = document, g = d.createElement('script'), s = d.getElementsByTagName('script')[0];
+      g.async = true; g.src = u + 'matomo.js'; s.parentNode.insertBefore(g, s);
+    })();
+  </script>
 
 </body>
 
