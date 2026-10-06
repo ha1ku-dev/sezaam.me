@@ -36,6 +36,9 @@
           const data = await response.json();
 
           if (data.success) {
+            if (window._paq) {
+              window._paq.push(['trackEvent', 'Waitlist', 'Submit']);
+            }
             form.innerHTML = '<p class="form-message success" style="font-size:1.3rem;">Merci ! On vous contacte bientôt.</p>';
           } else {
             showMessage(data.error || 'Une erreur est survenue. Réessayez.', 'error');
