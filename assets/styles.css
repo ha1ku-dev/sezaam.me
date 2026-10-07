@@ -453,7 +453,7 @@
       max-width: 560px;
       margin: 0.35rem auto 0;
       text-align: left;
-      font-size: 0.8rem;
+      font-size: 0.9rem !important;
       color: var(--text-dark);
     }
 
