@@ -101,7 +101,7 @@
       flex-direction: column;
       align-items: stretch;
       gap: 1.5rem;
-      max-width: 900px;
+      max-width: 720px;
       padding: 0 1.5rem 2rem;
       border-top: none;
       border-bottom: 2px solid var(--text);
@@ -148,7 +148,7 @@
       font-size: 1.5rem;
       color: var(--text-dark);
       max-width: 34rem;
-      margin: 0 auto;
+      margin: 1rem auto;
     }
 
     .solution-accent {
@@ -175,8 +175,6 @@
     }
 
     .btn-hero:hover {
-      background: var(--text);
-      color: var(--accent);
       text-decoration: none;
     }
 
@@ -185,34 +183,7 @@
       outline-offset: 3px;
     }
 
-    /* Painpoints */
-    .pain-section {
-      padding: 2.5rem 1.5rem;
-      border-top: none;
-      border-bottom: 2px solid var(--text);
-    }
-
-    .pain-section h2 {
-      text-align: center;
-    }
-
-    .pain-sub {
-      text-align: center;
-      max-width: 34rem;
-      margin: 1.25rem auto 0;
-      font-size: 1.15rem;
-      color: var(--text-dark);
-    }
-
-    .pain-image {
-      display: block;
-      width: 100%;
-      max-width: 560px;
-      height: auto;
-      margin: 1.25rem auto;
-      border: 1px solid var(--text);
-    }
-
+    /* Dynamic hero headline */
     .painpoint-display {
       display: inline-block;
       white-space: nowrap;
@@ -461,9 +432,13 @@
     }
 
     .form-message {
-      margin-top: 1rem;
+      margin-top: 0.75rem;
       font-family: 'Inconsolata', monospace;
       font-size: 1rem;
+    }
+
+    .form-message:empty {
+      display: none;
     }
 
     .form-message.success {
@@ -475,10 +450,16 @@
     }
 
     .privacy-note {
-      margin-top: 0.75rem;
-      font-size: 0.95rem;
+      max-width: 560px;
+      margin: 0.35rem auto 0;
+      text-align: left;
+      font-size: 0.8rem;
       color: var(--text-dark);
-      opacity: 0.8;
+    }
+
+    .privacy-note a {
+      color: var(--text-dark);
+      text-decoration: underline;
     }
 
     /* FAQ */
