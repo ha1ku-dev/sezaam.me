@@ -81,7 +81,7 @@
       gap: 0.75rem;
       max-width: 720px;
       margin: 0 auto;
-      padding-top: 0.3rem;
+      padding: 0.3rem;
     }
 
     .brand-icon {
@@ -115,7 +115,7 @@
       display: block;
       width: auto;
       height: auto;
-      max-width: min(560px, 100%);
+      max-width: min(720px, 100%);
       max-height: 80svh;
       margin: 0 auto;
       border: 1px solid var(--text);
@@ -707,12 +707,9 @@
         font-size: 2.1rem;
       }
 
-      .brand-icon {
-        height: 1.8rem;
-      }
 
       .site-header .logo {
-        font-size: 1rem;
+        font-size: 1.2rem;
       }
 
       .faq-question {
