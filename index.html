@@ -62,7 +62,7 @@
       <p class="solution-text">Fini les boîtes à clés ! Faites ouvrir la porte de votre immeuble avec un téléphone — sans
         application.</p>
 
-      <a class="btn-hero" href="#waitlist-form">Ah ouais !</a>
+      <a class="btn-hero" href="#waitlist-form">J'en suis !</a>
     </div>
   </section>
 
@@ -105,25 +105,6 @@
       </div>
       <div class="reviews-dots" id="reviews-dots"></div>
     </div>
-  </section>
-
-  <!-- How it works -->
-  <section>
-    <h2>Comment ça marche</h2>
-    <video class="section-media" autoplay loop muted playsinline poster="assets/lockbox.jpg">
-      <source src="assets/opener-demo.mp4" type="video/mp4">
-    </video>
-    <ol class="steps">
-      <li>
-        <p class="step-text">Branchez Sezaam Opener sur votre interphone.</p>
-      </li>
-      <li>
-        <p class="step-text">Créez un nouveau code d'accès depuis votre tableau de bord.</p>
-      </li>
-      <li>
-        <p class="step-text">Partagez le lien de l'appareil avec vos voyageurs.</p>
-      </li>
-    </ol>
   </section>
 
   <!-- Features -->
@@ -178,7 +159,7 @@
           <h3>Une visibilité complète</h3>
         </div>
         <div class="feature-desc">
-          <p>Voyez qui a ouvert la porte et quand, vérifiez l'état de l'appareil, et bien plus encore.</p>
+          <p>Voyez qui a ouvert la porte et quand, recevez une notification à chaque ouverture, vérifiez l'état de l'appareil, et bien plus encore.</p>
         </div>
       </div>
       <div class="feature-item">
@@ -194,11 +175,48 @@
           <h3>Une compatibilité universelle</h3>
         </div>
         <div class="feature-desc">
-          <p>Fonctionne avec presque tous les interphones (certaines installations peuvent demander un peu plus de
+          <p>Fonctionne avec tous les interphones (certaines installations peuvent demander un peu plus de
             travail — consultez la FAQ).</p>
         </div>
       </div>
+      <div class="feature-item">
+        <div class="feature-header">
+          <span class="feature-icon" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+              <path d="M8 2v4" />
+              <path d="M16 2v4" />
+              <rect x="3" y="4" width="18" height="18" rx="2" />
+              <path d="M3 10h18" />
+            </svg>
+          </span>
+          <h3>Automatisation</h3>
+        </div>
+        <div class="feature-desc">
+          <p>Connectez votre calendrier Airbnb : les accès se créent tout seuls à chaque réservation. Bientôt Booking et d'autres plateformes.</p>
+        </div>
+      </div>
     </div>
+  </section>
+
+  <!-- How it works -->
+  <section>
+    <h2>Comment ça marche</h2>
+    <video class="section-media" autoplay loop muted playsinline poster="assets/lockbox.jpg">
+      <source src="assets/opener-demo.mp4" type="video/mp4">
+    </video>
+    <ol class="steps">
+      <li>
+        <p class="step-text">Branchez Sezaam Opener sur votre interphone.</p>
+      </li>
+      <li>
+        <p class="step-text">Créez un nouveau code d'accès.</p>
+      </li>
+      <li>
+        <p class="step-text">Partagez le lien avec vos voyageurs.</p>
+      </li>
+    </ol>
   </section>
 
   <!-- Benefits -->
@@ -234,9 +252,8 @@
         <source src="assets/3dprint.mp4" type="video/mp4">
       </video>
 
-      <p>Le prototype actuel n'est pas encore <strong>produit commercial</strong>, mais il est
-        <strong>entièrement fonctionnel</strong> ✨. Si vous souhaitez le tester et contribuer à façonner la version finale, laissez-nous
-        votre e-mail et nous vous contacterons rapidement !</p>
+      <p>Le prototype est déjà <strong>entièrement fonctionnel</strong> ✨ et installé chez des hôtes pilotes.
+        Nous ouvrons les inscriptions pour la première série : laissez-nous votre e-mail et nous vous contacterons rapidement !</p>
 
       <form class="waitlist-form" id="waitlist-form">
         <div class="honeypot">
@@ -265,7 +282,7 @@
 
     <details class="faq-item">
       <summary><span class="faq-question">De quoi ai-je besoin pour utiliser Sezaam Opener ?</span></summary>
-      <p class="faq-answer">D'un interphone compatible, d'un réseau Wi-Fi à proximité de l'interphone, et d'un compte
+      <p class="faq-answer">D'un interphone, d'une prise électrique à proximité, d'un réseau Wi-Fi, et d'un compte
         Sezaam. L'installation prend environ 10 minutes et ne nécessite aucun outil spécialisé.</p>
     </details>
 
@@ -287,13 +304,14 @@
       <p class="faq-answer">Absolument. Contrairement aux digicodes traditionnels, Sezaam inclut une limitation du
         nombre de tentatives (les tentatives incorrectes sont bloquées) et vous permet de renouveler les codes aussi
         souvent que vous le souhaitez.</p>
-      <p class="faq-answer">Toutes les données sont chiffrées en transit et au repos selon les normes du secteur.</p>
+      <p class="faq-answer">Toutes les données sont chiffrées en transit (TLS) et au repos (AES-256).</p>
     </details>
 
     <details class="faq-item">
       <summary><span class="faq-question">Puis-je ouvrir la porte de mon appartement avec Sezaam Opener ?</span>
       </summary>
-      <p class="faq-answer">Non — Sezaam Opener est conçu uniquement pour les portes d’immeubles ou de garages.</p>
+      <p class="faq-answer">Sezaam Opener ouvre la porte de l'immeuble ou du garage. Pour la porte de votre
+        appartement, c'est l'app Sezaam qui s'en charge : elle pilote aussi les serrures Nuki (et bientôt SwitchBot).</p>
     </details>
 
     <p>Si vous avez d'autres questions n'hesitez pas à nous écrire !</p>
