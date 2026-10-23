@@ -441,7 +441,8 @@
     }
 
     .form-message.success {
-      color: var(--primary);
+      color: whitesmoke;
+      font-weight: 900;
     }
 
     .form-message.error {
