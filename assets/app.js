@@ -43,12 +43,12 @@
           } else {
             showMessage(data.error || 'Une erreur est survenue. Réessayez.', 'error');
             submitBtn.disabled = false;
-            submitBtn.textContent = 'Me contacter';
+            submitBtn.textContent = 'Réserver ma place';
           }
         } catch (err) {
           showMessage('Une erreur est survenue. Réessayez.', 'error');
           submitBtn.disabled = false;
-          submitBtn.textContent = 'Me contacter';
+          submitBtn.textContent = 'Réserver ma place';
         }
       });
 
@@ -290,4 +290,118 @@
 
       typePhrase();
     })();
-  
+
+    // Keypad animation — mirrors the real opener screen: only the most
+    // recent digit is visible, earlier ones become asterisks.
+    (function () {
+      var code = ['4', '8', '1', '5', '2', '6'];
+      var keys = document.querySelectorAll('.pad-key[data-key]');
+      var digitsEl = document.getElementById('pad-digits');
+      var messageEl = document.getElementById('pad-message');
+      var asteriskTpl = document.getElementById('pad-asterisk');
+      if (!keys.length || !digitsEl || !messageEl || !asteriskTpl) return;
+
+      var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      function keyFor(value) {
+        for (var i = 0; i < keys.length; i++) {
+          if (keys[i].getAttribute('data-key') === value) return keys[i];
+        }
+        return null;
+      }
+
+      function asterisk() {
+        return asteriskTpl.content.firstElementChild.cloneNode(true);
+      }
+
+      var entered = [];
+
+      function renderDigits() {
+        digitsEl.innerHTML = '';
+        for (var i = 0; i < entered.length; i++) {
+          if (i === entered.length - 1) {
+            var span = document.createElement('span');
+            span.textContent = entered[i];
+            digitsEl.appendChild(span);
+          } else {
+            digitsEl.appendChild(asterisk());
+          }
+        }
+      }
+
+      function setMessage(text, state) {
+        messageEl.textContent = text;
+        messageEl.classList.remove('is-success', 'is-error');
+        if (state) messageEl.classList.add(state);
+      }
+
+      function reset() {
+        entered = [];
+        renderDigits();
+        for (var i = 0; i < keys.length; i++) keys[i].classList.remove('is-pressed');
+        setMessage('', null);
+      }
+
+      function press(key) {
+        if (!key) return;
+        key.classList.add('is-pressed');
+        setTimeout(function () { key.classList.remove('is-pressed'); }, 150);
+      }
+
+      function showSuccess() {
+        entered = [];
+        renderDigits();
+        setMessage('succès', 'is-success');
+      }
+
+      if (reduceMotion) {
+        showSuccess();
+        return;
+      }
+
+      // Uneven gaps and a beat before validating read as a real person typing.
+      var GAPS = [520, 390, 610, 450, 560];
+      var FIRST_KEY_MS = 800;
+      var PAUSE_BEFORE_OK_MS = 1250;
+      var SUBMIT_DELAY_MS = 500;
+      var SUCCESS_HOLD_MS = 2400;
+
+      function run() {
+        reset();
+
+        var t = FIRST_KEY_MS;
+
+        code.forEach(function (digit, i) {
+          setTimeout(function () {
+            press(keyFor(digit));
+            entered.push(digit);
+            renderDigits();
+          }, t);
+          t += (i < code.length - 1) ? GAPS[i] : PAUSE_BEFORE_OK_MS;
+        });
+
+        setTimeout(function () {
+          press(keyFor('ok'));
+        }, t);
+        t += SUBMIT_DELAY_MS;
+
+        setTimeout(showSuccess, t);
+        t += SUCCESS_HOLD_MS;
+
+        setTimeout(run, t);
+      }
+
+      run();
+    })();
+
+    // Track conversion CTA clicks (data-cta attributes) in Matomo.
+    (function () {
+      var ctas = document.querySelectorAll('[data-cta]');
+      for (var i = 0; i < ctas.length; i++) {
+        ctas[i].addEventListener('click', function () {
+          if (window._paq) {
+            window._paq.push(['trackEvent', 'CTA', 'Click', this.getAttribute('data-cta')]);
+          }
+        });
+      }
+    })();

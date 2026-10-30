@@ -4,24 +4,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>sezaam opener — Un digicode virtuel pour la porte de votre immeuble</title>
+  <title>sezaam — Un digicode virtuel pour la porte de votre location</title>
   <meta name="description"
-    content="Sezaam Opener permet d'ouvrir la porte de votre immeuble avec un téléphone — sans application. Remplacez votre boîte à clés par un digicode virtuel.">
-  <meta property="og:title" content="sezaam opener — Un digicode virtuel pour la porte de votre immeuble">
+    content="sezaam remplace votre boîte à clés : faites ouvrir la porte de votre immeuble ou de votre logement avec un téléphone — sans application. Installation offerte.">
+  <meta property="og:title" content="sezaam — Un digicode virtuel pour la porte de votre location">
   <meta property="og:description"
-    content="Un digicode virtuel pour la porte de votre immeuble. Ouvrez avec un téléphone — sans application.">
+    content="Un digicode virtuel pour vos locations. Ouvrez la porte avec un téléphone — sans application, sans boîte à clés.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://sezaam.me">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&family=Press+Start+2P&family=VT323&display=swap"
-    rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Color+Emoji&display=swap" rel="stylesheet">
-
-  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo+Black&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo+Black&family=Bebas+Neue&display=swap" rel="stylesheet">
+  <link rel="preload" href="assets/fonts/inter-variable.woff2" as="font" type="font/woff2" crossorigin>
 
   <link rel="stylesheet" href="assets/styles.css">
   <link rel="icon" href="assets/icon_small.png" sizes="48px">
@@ -41,28 +32,147 @@
     })();
   </script>
   <!-- End Matomo Code -->
-  
+
   </head>
 
 <body>
 
   <!-- Brand -->
   <header class="site-header">
-    <img src="assets/icon_small.png" alt="" class="brand-icon">
-    <div class="logo">sezaam opener</div>
+    <a class="site-brand" href="#solution">
+      <img src="assets/icon_small.png" alt="" class="brand-icon">
+      <span class="logo">sezaam</span>
+    </a>
+    <nav class="site-nav" aria-label="Navigation principale">
+      <a href="#fonctionnalites">Fonctionnalités</a>
+      <a href="#comment-ca-marche">Comment ça marche</a>
+      <a href="#materiel">Matériel</a>
+      <a href="#tarifs">Tarifs</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <a class="btn-small" href="#inscription" data-cta="header">Réserver</a>
   </header>
 
   <!-- Hero -->
-  <section id="solution">
-    <img class="solution-photo" src="assets/intercom.jpg" alt="Sezaam Opener branché sur un interphone Fermax">
-
-    <div class="solution-copy">
+  <section id="solution" class="hero">
+    <div class="hero-copy">
+      <span class="hero-eyebrow">Digicode virtuel pour vos locations</span>
       <h1>Est-ce qu'ils ont <span class="solution-accent painpoint-display" id="painpoint-display">récupéré les clés ?</span></h1>
 
-      <p class="solution-text">Fini les boîtes à clés ! Faites ouvrir la porte de votre immeuble avec un téléphone — sans
+      <p class="solution-text">Fini les boîtes à clés ! Faites ouvrir la porte de votre location avec un téléphone — sans
         application.</p>
 
-      <a class="btn-hero" href="#waitlist-form">J'en suis !</a>
+      <a class="btn-hero" href="#inscription" data-cta="hero">Réserver mon installation offerte</a>
+
+      <p class="hero-note">Les villes retirent les boîtes à clés des rues. Préparez la vôtre dès maintenant.</p>
+    </div>
+
+    <div class="hero-media" aria-hidden="true">
+      <div class="phone">
+        <div class="phone-screen phone-screen--keypad">
+          <header class="phone-app-header">
+            <img src="assets/icon_small.png" alt="" class="phone-app-logo">
+          </header>
+
+          <div class="phone-message" id="pad-message"></div>
+
+          <div class="phone-digits" id="pad-digits"></div>
+
+          <div class="pad-grid">
+            <span class="pad-key" data-key="1">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M13 20v-16l-5 5" />
+              </svg>
+            </span>
+            <span class="pad-key" data-key="2">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M8 8a4 4 0 1 1 8 0c0 1.098 -.564 2.025 -1.159 2.815l-6.841 9.185h8" />
+              </svg>
+            </span>
+            <span class="pad-key" data-key="3">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M12 12a4 4 0 1 0 -4 -4" />
+                <path d="M8 16a4 4 0 1 0 4 -4" />
+              </svg>
+            </span>
+            <span class="pad-key" data-key="4">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M15 20v-15l-8 11h10" />
+              </svg>
+            </span>
+            <span class="pad-key" data-key="5">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M8 20h4a4 4 0 1 0 0 -8h-4v-8h8" />
+              </svg>
+            </span>
+            <span class="pad-key" data-key="6">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M8 16a4 4 0 1 0 8 0v-1a4 4 0 1 0 -8 0" />
+                <path d="M16 8a4 4 0 1 0 -8 0v8" />
+              </svg>
+            </span>
+            <span class="pad-key" data-key="7">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M8 4h8l-4 16" />
+              </svg>
+            </span>
+            <span class="pad-key" data-key="8">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M12 8m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0" />
+                <path d="M12 16m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0" />
+              </svg>
+            </span>
+            <span class="pad-key" data-key="9">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M16 8a4 4 0 1 0 -8 0v1a4 4 0 1 0 8 0" />
+                <path d="M8 16a4 4 0 1 0 8 0v-8" />
+              </svg>
+            </span>
+            <span class="pad-key pad-key--fn" data-key="back">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M20 6a1 1 0 0 1 1 1v10a1 1 0 0 1 -1 1h-11l-5 -5a1.5 1.5 0 0 1 0 -2l5 -5z" />
+                <path d="M12 10l4 4m0 -4l-4 4" />
+              </svg>
+            </span>
+            <span class="pad-key" data-key="0">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M16 16v-8" />
+                <path d="M12 20a4 4 0 0 0 4 -4v-8a4 4 0 1 0 -8 0v8a4 4 0 0 0 4 4z" />
+              </svg>
+            </span>
+            <span class="pad-key pad-key--ok" data-key="ok">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M5 12l5 5l10 -10" />
+              </svg>
+            </span>
+          </div>
+
+          <p class="phone-app-footer">propulsé par sezaam</p>
+        </div>
+      </div>
+
+      <template id="pad-asterisk">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+          <path d="M12 12v-9" />
+          <path d="M12 12l-9 -2.5" />
+          <path d="M12 12l9 -2.5" />
+          <path d="M12 12l6 8.5" />
+          <path d="M12 12l-6 8.5" />
+        </svg>
+      </template>
     </div>
   </section>
 
@@ -75,16 +185,16 @@
     <div class="carousel-wrapper">
       <div class="carousel-fade-left"></div>
       <div class="carousel-track" id="reviews-carousel">
-        <div class="carousel-item"><img src="assets/review_0.png" alt="Avis client"></div>
-        <div class="carousel-item"><img src="assets/review_1.png" alt="Avis client"></div>
-        <div class="carousel-item"><img src="assets/review_2.png" alt="Avis client"></div>
-        <div class="carousel-item"><img src="assets/review_3.png" alt="Avis client"></div>
-        <div class="carousel-item"><img src="assets/review_4.png" alt="Avis client"></div>
-        <div class="carousel-item"><img src="assets/review_5.png" alt="Avis client"></div>
-        <div class="carousel-item"><img src="assets/review_6.png" alt="Avis client"></div>
-        <div class="carousel-item"><img src="assets/review_7.png" alt="Avis client"></div>
-        <div class="carousel-item"><img src="assets/review_8.png" alt="Avis client"></div>
-        <div class="carousel-item"><img src="assets/review_9.png" alt="Avis client"></div>
+        <div class="carousel-item"><img src="assets/review_0.png" alt="Avis voyageur"></div>
+        <div class="carousel-item"><img src="assets/review_1.png" alt="Avis voyageur"></div>
+        <div class="carousel-item"><img src="assets/review_2.png" alt="Avis voyageur"></div>
+        <div class="carousel-item"><img src="assets/review_3.png" alt="Avis voyageur"></div>
+        <div class="carousel-item"><img src="assets/review_4.png" alt="Avis voyageur"></div>
+        <div class="carousel-item"><img src="assets/review_5.png" alt="Avis voyageur"></div>
+        <div class="carousel-item"><img src="assets/review_6.png" alt="Avis voyageur"></div>
+        <div class="carousel-item"><img src="assets/review_7.png" alt="Avis voyageur"></div>
+        <div class="carousel-item"><img src="assets/review_8.png" alt="Avis voyageur"></div>
+        <div class="carousel-item"><img src="assets/review_9.png" alt="Avis voyageur"></div>
       </div>
       <div class="carousel-fade-right"></div>
     </div>
@@ -92,23 +202,23 @@
     <!-- Mobile: snap gallery -->
     <div class="reviews-gallery" id="reviews-gallery">
       <div class="reviews-gallery-track" id="reviews-gallery-track">
-        <div class="reviews-gallery-item"><img src="assets/review_0.png" alt="Avis client"></div>
-        <div class="reviews-gallery-item"><img src="assets/review_1.png" alt="Avis client"></div>
-        <div class="reviews-gallery-item"><img src="assets/review_2.png" alt="Avis client"></div>
-        <div class="reviews-gallery-item"><img src="assets/review_3.png" alt="Avis client"></div>
-        <div class="reviews-gallery-item"><img src="assets/review_4.png" alt="Avis client"></div>
-        <div class="reviews-gallery-item"><img src="assets/review_5.png" alt="Avis client"></div>
-        <div class="reviews-gallery-item"><img src="assets/review_6.png" alt="Avis client"></div>
-        <div class="reviews-gallery-item"><img src="assets/review_7.png" alt="Avis client"></div>
-        <div class="reviews-gallery-item"><img src="assets/review_8.png" alt="Avis client"></div>
-        <div class="reviews-gallery-item"><img src="assets/review_9.png" alt="Avis client"></div>
+        <div class="reviews-gallery-item"><img src="assets/review_0.png" alt="Avis voyageur"></div>
+        <div class="reviews-gallery-item"><img src="assets/review_1.png" alt="Avis voyageur"></div>
+        <div class="reviews-gallery-item"><img src="assets/review_2.png" alt="Avis voyageur"></div>
+        <div class="reviews-gallery-item"><img src="assets/review_3.png" alt="Avis voyageur"></div>
+        <div class="reviews-gallery-item"><img src="assets/review_4.png" alt="Avis voyageur"></div>
+        <div class="reviews-gallery-item"><img src="assets/review_5.png" alt="Avis voyageur"></div>
+        <div class="reviews-gallery-item"><img src="assets/review_6.png" alt="Avis voyageur"></div>
+        <div class="reviews-gallery-item"><img src="assets/review_7.png" alt="Avis voyageur"></div>
+        <div class="reviews-gallery-item"><img src="assets/review_8.png" alt="Avis voyageur"></div>
+        <div class="reviews-gallery-item"><img src="assets/review_9.png" alt="Avis voyageur"></div>
       </div>
       <div class="reviews-dots" id="reviews-dots"></div>
     </div>
   </section>
 
   <!-- Features -->
-  <section>
+  <section id="fonctionnalites">
     <h2>Fonctionnalités</h2>
     <div class="features-grid">
       <div class="feature-item">
@@ -175,8 +285,7 @@
           <h3>Une compatibilité universelle</h3>
         </div>
         <div class="feature-desc">
-          <p>Fonctionne avec tous les interphones (certaines installations peuvent demander un peu plus de
-            travail — consultez la FAQ).</p>
+          <p>Fonctionne avec tous les interphones et les appareils connectés du marché — Shelly, SwitchBot, Nuki, et plus encore.</p>
         </div>
       </div>
       <div class="feature-item">
@@ -199,59 +308,173 @@
   </section>
 
   <!-- How it works -->
-  <section>
+  <section class="how-it-works" id="comment-ca-marche">
     <h2>Comment ça marche</h2>
-    <video class="section-media" autoplay loop muted playsinline poster="assets/lockbox.jpg">
-      <source src="assets/opener-demo.mp4" type="video/mp4">
-    </video>
-    <ol class="steps">
-      <li>
-        <p class="step-text">Branchez Sezaam Opener sur votre interphone.</p>
-      </li>
-      <li>
-        <p class="step-text">Créez un nouveau code d'accès.</p>
-      </li>
-      <li>
-        <p class="step-text">Partagez le lien avec vos voyageurs.</p>
-      </li>
-    </ol>
+
+    <div class="how-row">
+      <div class="how-media" aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+          <path d="M6 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
+          <path d="M17 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
+          <path d="M17 17h-11v-14h-2" />
+          <path d="M6 5l13 1l-1 7h-13" />
+        </svg>
+      </div>
+      <div class="how-copy">
+        <span class="how-eyebrow">Étape 1</span>
+        <h3>Choisissez votre matériel</h3>
+        <p class="how-text">Un petit appareil connecté (Shelly, SwitchBot ou Nuki) que vous gardez — nous on guide votre
+          choix et on l'installe.</p>
+      </div>
+    </div>
+
+    <div class="how-row how-row--reverse">
+      <div class="how-media" aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+          <path d="M10.325 4.317c.426 -1.756 2.924 -1.756 3.35 0a1.724 1.724 0 0 0 2.573 1.066c1.543 -.94 3.31 .826 2.37 2.37a1.724 1.724 0 0 0 1.065 2.572c1.756 .426 1.756 2.924 0 3.35a1.724 1.724 0 0 0 -1.066 2.573c.94 1.543 -.826 3.31 -2.37 2.37a1.724 1.724 0 0 0 -2.572 1.065c-.426 1.756 -2.924 1.756 -3.35 0a1.724 1.724 0 0 0 -2.573 -1.066c-1.543 .94 -3.31 -.826 -2.37 -2.37a1.724 1.724 0 0 0 -1.065 -2.572c-1.756 -.426 -1.756 -2.924 0 -3.35a1.724 1.724 0 0 0 1.066 -2.573c-.94 -1.543 .826 -3.31 2.37 -2.37c.996 .608 2.296 .07 2.572 -1.065z" />
+          <path d="M12 12m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
+        </svg>
+      </div>
+      <div class="how-copy">
+        <span class="how-eyebrow">Étape 2</span>
+        <h3>On l'installe et on le configure</h3>
+        <p class="how-text">Installation offerte : sur place sur la Côte d'Azur, ou à distance en visio. Tout est prêt le
+          jour où vos voyageurs arrivent.</p>
+      </div>
+    </div>
+
+    <div class="how-row">
+      <div class="how-media" aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="18" cy="5" r="3" />
+          <circle cx="6" cy="12" r="3" />
+          <circle cx="18" cy="19" r="3" />
+          <line x1="8.59" y1="13.51" x2="15.42" y2="17.49" />
+          <line x1="15.41" y1="6.51" x2="8.59" y2="10.49" />
+        </svg>
+      </div>
+      <div class="how-copy">
+        <span class="how-eyebrow">Étape 3</span>
+        <h3>Partagez le lien avec vos voyageurs</h3>
+        <p class="how-text">Chaque réservation reçoit un lien avec son code. Le voyageur ouvre la porte depuis son
+          navigateur — sans application.</p>
+      </div>
+    </div>
   </section>
 
-  <!-- Benefits -->
-  <section>
-    <h2>Avantages</h2>
-    <ul class="benefits-list">
-      <li>
-        <h3>La tranquillité d'esprit</h3>
-        <p>Plus besoin de craindre que vos boîtes à clés soient volées ou retirées.</p>
-      </li>
-      <li>
-        <h3>Plus de temps libre</h3>
-        <p>Vous n'attendez pas les voyageurs — et vous ne perdez plus de temps à gérer les boîtes à clés.</p>
-      </li>
-      <li>
-        <h3>Une meilleure expérience pour les voyageurs</h3>
-        <p>Évitez les longues explications : envoyez la même procédure d'arrivée, simple et claire, à tout le monde.</p>
-      </li>
-    </ul>
+  <!-- What you need -->
+  <section id="materiel">
+    <h2>De quoi avez-vous besoin</h2>
+    <p class="section-sub">Un petit appareil connecté — qui vous appartient — plus sezaam. C'est tout. Et on vous
+      l'installe gratuitement.</p>
+
+    <div class="device-grid">
+      <div class="device-card">
+        <span class="device-tag">Porte d'immeuble &amp; portail</span>
+        <h3>Shelly</h3>
+        <p class="device-desc">Un module relais qui commande l'ouvre-porte de votre interphone. Le choix le plus fiable,
+          installé dans votre logement.</p>
+        <a class="device-link" href="https://www.shelly.com/fr" target="_blank" rel="noopener">Voir le matériel →</a>
+      </div>
+      <div class="device-card">
+        <span class="device-tag">Sans le moindre câblage</span>
+        <h3>SwitchBot Bot</h3>
+        <p class="device-desc">Un petit bouton motorisé qui appuie physiquement sur la touche d'ouverture de votre
+          interphone. Parfait pour commencer.</p>
+        <a class="device-link" href="https://www.switch-bot.com/" target="_blank" rel="noopener">Voir le matériel →</a>
+      </div>
+      <div class="device-card">
+        <span class="device-tag">Porte de l'appartement</span>
+        <h3>Nuki</h3>
+        <p class="device-desc">Une serrure connectée qui verrouille et déverrouille la porte de l'appartement à distance,
+          avec des codes invités.</p>
+        <a class="device-link" href="https://nuki.io/fr/" target="_blank" rel="noopener">Voir le matériel →</a>
+      </div>
+    </div>
+
+    <p class="guides-note">Pas sûr de ce qu'il vous faut ? On vous conseille le bon matériel lors de l'inscription. Des
+      guides d'installation détaillés arrivent bientôt sur notre blog.</p>
   </section>
 
-  <!-- CTA -->
-  <section class="cta">
+  <!-- Free installation -->
+  <section class="install" id="installation">
+    <h2>Installation offerte, zéro prise de tête</h2>
+    <p class="install-intro">On s'occupe du branchement, de la configuration et de vos premiers accès. Vous, vous
+      profitez.</p>
+
+    <div class="install-grid">
+      <div class="install-card">
+        <h3>📍 Sur place</h3>
+        <p>Sur la Côte d'Azur, on vient chez vous installer et tout configurer. Rien à faire de votre côté.</p>
+      </div>
+      <div class="install-card">
+        <h3>💻 À distance</h3>
+        <p>Partout ailleurs, on vous guide en visio, pas à pas. Simple, même sans être bricoleur.</p>
+      </div>
+    </div>
+
+    <p class="install-note">Installation <strong>offerte aux premiers inscrits</strong> — profitez-en pour tester en
+      avant-première avec le tarif de lancement.</p>
+
+    <a class="btn-hero" href="#inscription" data-cta="install">Réserver mon installation</a>
+  </section>
+
+  <!-- Pricing -->
+  <section class="pricing" id="tarifs">
+    <h2>Tarifs</h2>
+    <p class="section-sub">Une seule règle : <strong>vous ne payez que les mois où votre bien est réellement utilisé.</strong>
+      Pas de forfait à l'année, même quand il est vide.</p>
+
+    <div class="pricing-grid">
+      <div class="price-card">
+        <h3>À l'usage</h3>
+        <p class="price">5&nbsp;€<span class="price-unit">/ bien · mois</span></p>
+        <p class="price-sub">Seulement les mois où votre bien est utilisé</p>
+        <ul class="price-features">
+          <li>Un bien actif = 5 €</li>
+          <li>Bien inoccupé ? 0 € ce mois-là</li>
+          <li>Tous vos appareils inclus</li>
+          <li>Résiliable à tout moment</li>
+        </ul>
+        <a class="btn-hero" href="#inscription" data-cta="pricing-monthly">Réserver ma place</a>
+      </div>
+      <div class="price-card price-card--featured">
+        <span class="price-badge">−20 %</span>
+        <h3>Engagement annuel</h3>
+        <p class="price">48&nbsp;€<span class="price-unit">/ bien · an</span></p>
+        <p class="price-sub">Soit 4 €/mois, usage illimité toute l'année</p>
+        <ul class="price-features">
+          <li>20 % de réduction</li>
+          <li>Ouvertures illimitées, 12 mois</li>
+          <li>Tous vos appareils inclus</li>
+          <li>Idéal pour louer toute l'année</li>
+        </ul>
+        <a class="btn-hero" href="#inscription" data-cta="pricing-annual">Réserver ma place</a>
+      </div>
+    </div>
+
+    <div class="compare">
+      <h3>Lequel choisir ?</h3>
+      <p><strong>Vous louez surtout l'été ?</strong> → « À l'usage » : une saison revient à ~30 € seulement, au lieu d'un
+        forfait annuel complet.</p>
+      <p><strong>Vous louez toute l'année ?</strong> → « Engagement annuel » : 48 €, soit 20 % de moins que la formule
+        mensuelle.</p>
+    </div>
+  </section>
+
+  <!-- Early access CTA -->
+  <section class="cta" id="inscription">
     <div class="container">
-      <h2>Construisons ensemble</h2>
-      <p>Sezaam Opener est un projet passion — conçu de A à Z par un hôte qui aime la technologie, l'automatisation et
-        les
-        solutions qui simplifient la gestion locative.</p>
+      <h2>Réservez votre installation offerte</h2>
 
-      <video class="section-media" autoplay loop muted playsinline preload="metadata"
-        poster="assets/3dprint-poster.jpg" aria-label="Impression 3D du boîtier Sezaam Opener">
-        <source src="assets/3dprint.webm" type="video/webm">
-        <source src="assets/3dprint.mp4" type="video/mp4">
-      </video>
-
-      <p>Le prototype est déjà <strong>entièrement fonctionnel</strong> ✨ et installé chez des hôtes pilotes.
-        Nous ouvrons les inscriptions pour la première série : laissez-nous votre e-mail et nous vous contacterons rapidement !</p>
+      <p>Le service ouvre bientôt ses inscriptions. Laissez votre e-mail et rejoignez la liste : vous serez
+        <strong>prévenu au lancement</strong>, avec <strong>l'installation offerte</strong> et le
+        <strong>tarif de lancement</strong>.</p>
 
       <form class="waitlist-form" id="waitlist-form">
         <div class="honeypot">
@@ -259,7 +482,7 @@
           <input type="text" name="website" id="website" tabindex="-1" autocomplete="off">
         </div>
         <input type="email" name="email" id="email" placeholder="votre@email.com" required autocomplete="email">
-        <button type="submit" id="submit-btn">Me contacter</button>
+        <button type="submit" id="submit-btn">Réserver ma place</button>
       </form>
       <div id="form-message" class="form-message"></div>
       <p class="privacy-note">Vos données ne sont utilisées que pour vous recontacter — <a
@@ -269,50 +492,63 @@
   </section>
 
   <!-- FAQ -->
-  <section class="faq">
+  <section class="faq" id="faq">
     <h2>FAQ</h2>
 
     <details class="faq-item">
-      <summary><span class="faq-question">Mon interphone est-il compatible avec Sezaam Opener ?</span></summary>
-      <p class="faq-answer">Oui — il peut être installé sur n’importe quel interphone. Certaines installations sont
-        aussi simples qu’un branchement de fils ; d’autres peuvent nécessiter un peu de soudure.</p>
+      <summary><span class="faq-question">De quels appareils ai-je besoin ?</span></summary>
+      <p class="faq-answer">Un seul appareil suffit dans la plupart des cas — selon ce que vous voulez ouvrir : un module
+        <strong>Shelly</strong> pour l'interphone/le portail, un <strong>SwitchBot Bot</strong> pour une installation sans
+        câblage, ou une serrure <strong>Nuki</strong> pour la porte de l'appartement. Vous gardez votre matériel, il vous
+        appartient.</p>
     </details>
 
     <details class="faq-item">
-      <summary><span class="faq-question">De quoi ai-je besoin pour utiliser Sezaam Opener ?</span></summary>
-      <p class="faq-answer">D'un interphone, d'une prise électrique à proximité, d'un réseau Wi-Fi, et d'un compte
-        Sezaam. L'installation prend environ 10 minutes et ne nécessite aucun outil spécialisé.</p>
+      <summary><span class="faq-question">Mon interphone est-il compatible ?</span></summary>
+      <p class="faq-answer">Oui — sezaam fonctionne avec tous les interphones. Certaines installations sont aussi simples
+        qu'un branchement de fils ; d'autres peuvent demander un peu plus de travail. C'est pour ça qu'on vous propose
+        l'installation offerte : on s'en occupe.</p>
     </details>
 
     <details class="faq-item">
-      <summary><span class="faq-question">Ai-je besoin d'une autorisation pour installer Sezaam Opener ?</span>
-      </summary>
-      <p class="faq-answer">Non — il est installé à l’intérieur de votre appartement, vous n’avez donc besoin de
-        l’autorisation de personne.</p>
+      <summary><span class="faq-question">Qui fait l'installation ?</span></summary>
+      <p class="faq-answer">Nous ! L'installation est offerte aux premiers inscrits : on vient chez vous sur la Côte
+        d'Azur, ou on vous guide à distance en visio partout ailleurs. Tout est prêt avant l'arrivée de vos voyageurs.</p>
     </details>
 
     <details class="faq-item">
-      <summary><span class="faq-question">Que signifie « sans application » ?</span></summary>
-      <p class="faq-answer">Vos voyageurs n'ont rien à installer. Ils reçoivent un lien avec un code, ouvrent la page
-        dans leur navigateur, et entrent le code pour ouvrir la porte. C'est tout.</p>
+      <summary><span class="faq-question">Comment suis-je facturé ?</span></summary>
+      <p class="faq-answer">À l'usage : <strong>5 € par bien et par mois, uniquement les mois où le bien est utilisé</strong>
+        (une ouverture de porte ce mois-là). Si votre bien est vacant, vous ne payez rien. Vous pouvez aussi choisir
+        l'engagement annuel : 48 € par bien et par an, usage illimité.</p>
     </details>
 
     <details class="faq-item">
-      <summary><span class="faq-question">Sezaam Opener est-il sécurisé ?</span></summary>
-      <p class="faq-answer">Absolument. Contrairement aux digicodes traditionnels, Sezaam inclut une limitation du
-        nombre de tentatives (les tentatives incorrectes sont bloquées) et vous permet de renouveler les codes aussi
-        souvent que vous le souhaitez.</p>
+      <summary><span class="faq-question">Que se passe-t-il si mon bien est vacant plusieurs mois ?</span></summary>
+      <p class="faq-answer">Rien — aucun prélèvement. Avec la formule à l'usage, vous ne payez que les mois où une porte
+        est réellement ouverte. Un bien inoccupé ne vous coûte pas un centime.</p>
+    </details>
+
+    <details class="faq-item">
+      <summary><span class="faq-question">Est-ce que mes voyageurs doivent installer une application ?</span></summary>
+      <p class="faq-answer">Non. Ils reçoivent un lien avec un code, ouvrent la page dans leur navigateur, et entrent le
+        code pour ouvrir la porte. C'est tout.</p>
+    </details>
+
+    <details class="faq-item">
+      <summary><span class="faq-question">Est-ce sécurisé ?</span></summary>
+      <p class="faq-answer">Absolument. Contrairement aux digicodes traditionnels, sezaam limite le nombre de tentatives,
+        vous permet de renouveler les codes aussi souvent que nécessaire, et chaque code expire à la fin du séjour.</p>
       <p class="faq-answer">Toutes les données sont chiffrées en transit (TLS) et au repos (AES-256).</p>
     </details>
 
     <details class="faq-item">
-      <summary><span class="faq-question">Puis-je ouvrir la porte de mon appartement avec Sezaam Opener ?</span>
-      </summary>
-      <p class="faq-answer">Sezaam Opener ouvre la porte de l'immeuble ou du garage. Pour la porte de votre
-        appartement, c'est l'app Sezaam qui s'en charge : elle pilote aussi les serrures Nuki (et bientôt SwitchBot).</p>
+      <summary><span class="faq-question">Puis-je résilier à tout moment ?</span></summary>
+      <p class="faq-answer">Oui. La formule à l'usage est sans engagement : vous pouvez arrêter quand vous voulez.
+        L'engagement annuel court sur 12 mois, puis se renouvelle tant que vous le souhaitez.</p>
     </details>
 
-    <p>Si vous avez d'autres questions n'hesitez pas à nous écrire !</p>
+    <p class="faq-note">Si vous avez d'autres questions n'hésitez pas à nous écrire !</p>
   </section>
 
   <!-- Footer -->
