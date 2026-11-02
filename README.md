@@ -32,6 +32,20 @@ Point `sezaam.me` to GitHub Pages:
 
 The form POSTs to `https://app.sezaam.me/api/waitlist` (cross-origin).
 
+Payload:
+
+```json
+{
+  "email": "host@example.com",
+  "hostType": "particulier",
+  "propertyCount": 1
+}
+```
+
+- `hostType`: `particulier` or `professionnel`. Defaults to `particulier` in the form.
+- `propertyCount`: integer from 1 to 100. The slider displays `100` as “99+”.
+- Only `email` is required from the user's perspective; `hostType` and `propertyCount` have defaults.
+
 The K3s endpoint needs CORS headers:
 ```
 Access-Control-Allow-Origin: https://sezaam.me
@@ -42,7 +56,7 @@ Access-Control-Allow-Headers: Content-Type
 ## Project structure
 
 ```
-index.html          # Landing page (inline CSS + JS, no dependencies)
+index.html          # Landing page (external CSS + JS, no dependencies)
 assets/
   opener-demo.mp4   # Opener installation demo video
   lockbox.jpg       # Lockbox photo (video poster)

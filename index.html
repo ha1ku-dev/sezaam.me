@@ -4,12 +4,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>sezaam — Un digicode virtuel pour la porte de votre location</title>
+  <title>sezaam — Un digicode virtuel pour votre logement</title>
   <meta name="description"
-    content="sezaam remplace votre boîte à clés : faites ouvrir la porte de votre immeuble ou de votre logement avec un téléphone — sans application. Installation offerte.">
-  <meta property="og:title" content="sezaam — Un digicode virtuel pour la porte de votre location">
+    content="sezaam remplace votre boîte à clés : ouvrez la porte de votre logement avec un téléphone, sans application.">
+  <meta property="og:title" content="sezaam — Un digicode virtuel pour votre logement">
   <meta property="og:description"
-    content="Un digicode virtuel pour vos locations. Ouvrez la porte avec un téléphone — sans application, sans boîte à clés.">
+    content="Un digicode virtuel pour votre logement. Ouvrez la porte avec un téléphone — sans application, sans boîte à clés.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://sezaam.me">
   <link rel="preload" href="assets/fonts/inter-variable.woff2" as="font" type="font/woff2" crossorigin>
@@ -21,6 +21,7 @@
   <script>
     var _paq = window._paq = window._paq || [];
     /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['disableCookies']);
     _paq.push(['trackPageView']);
     _paq.push(['enableLinkTracking']);
     (function() {
@@ -43,26 +44,31 @@
       <img src="assets/icon_small.png" alt="" class="brand-icon">
       <span class="logo">sezaam</span>
     </a>
-    <nav class="site-nav" aria-label="Navigation principale">
+    <nav class="site-nav" id="site-nav" aria-label="Navigation principale">
       <a href="#fonctionnalites">Fonctionnalités</a>
       <a href="#comment-ca-marche">Comment ça marche</a>
       <a href="#materiel">Matériel</a>
       <a href="#tarifs">Tarifs</a>
       <a href="#faq">FAQ</a>
     </nav>
-    <a class="btn-small" href="#inscription" data-cta="header">Réserver</a>
+    <a class="btn-small header-cta" href="#inscription" data-cta="header">S'inscrire</a>
+    <button class="nav-toggle" type="button" aria-label="Ouvrir le menu" aria-controls="site-nav" aria-expanded="false">
+      <span class="nav-toggle-bar"></span>
+      <span class="nav-toggle-bar"></span>
+      <span class="nav-toggle-bar"></span>
+    </button>
   </header>
 
   <!-- Hero -->
   <section id="solution" class="hero">
     <div class="hero-copy">
-      <span class="hero-eyebrow">Digicode virtuel pour vos locations</span>
+      <span class="hero-eyebrow">Digicode virtuel pour vos logements</span>
       <h1>Est-ce qu'ils ont <span class="solution-accent painpoint-display" id="painpoint-display">récupéré les clés ?</span></h1>
 
-      <p class="solution-text">Fini les boîtes à clés ! Faites ouvrir la porte de votre location avec un téléphone — sans
+      <p class="solution-text">Fini les boîtes à clés ! Faites ouvrir la porte de votre logement avec un téléphone — sans
         application.</p>
 
-      <a class="btn-hero" href="#inscription" data-cta="hero">Réserver mon installation offerte</a>
+      <a class="btn-hero" href="#inscription" data-cta="hero">S'inscrire</a>
 
       <p class="hero-note">Les villes retirent les boîtes à clés des rues. Préparez la vôtre dès maintenant.</p>
     </div>
@@ -269,7 +275,7 @@
           <h3>Une visibilité complète</h3>
         </div>
         <div class="feature-desc">
-          <p>Voyez qui a ouvert la porte et quand, recevez une notification à chaque ouverture, vérifiez l'état de l'appareil, et bien plus encore.</p>
+          <p>Voyez qui a ouvert la porte et quand, recevez des notifications, vérifiez l'état de l'appareil, et bien plus encore.</p>
         </div>
       </div>
       <div class="feature-item">
@@ -301,7 +307,7 @@
           <h3>Automatisation</h3>
         </div>
         <div class="feature-desc">
-          <p>Connectez votre calendrier Airbnb : les accès se créent tout seuls à chaque réservation. Bientôt Booking et d'autres plateformes.</p>
+          <p>Connectez votre calendrier Airbnb ou votre channel manager : les accès se créent tout seuls à chaque réservation. Bientôt Booking et d'autres plateformes.</p>
         </div>
       </div>
     </div>
@@ -316,17 +322,17 @@
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
           stroke-linecap="round" stroke-linejoin="round">
           <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-          <path d="M6 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
-          <path d="M17 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
-          <path d="M17 17h-11v-14h-2" />
-          <path d="M6 5l13 1l-1 7h-13" />
+          <path d="M12 22v-5" />
+          <path d="M9 8v-6" />
+          <path d="M15 8v-6" />
+          <path d="M18 8v5a4 4 0 0 1 -4 4h-4a4 4 0 0 1 -4 -4v-5z" />
         </svg>
       </div>
       <div class="how-copy">
         <span class="how-eyebrow">Étape 1</span>
-        <h3>Choisissez votre matériel</h3>
-        <p class="how-text">Un petit appareil connecté (Shelly, SwitchBot ou Nuki) que vous gardez — nous on guide votre
-          choix et on l'installe.</p>
+        <h3>Connectez votre matériel</h3>
+        <p class="how-text">Un petit appareil connecté (Shelly, SwitchBot ou Nuki). Branchez-le et associez-le à sezaam —
+          on vous guide pas à pas.</p>
       </div>
     </div>
 
@@ -335,15 +341,18 @@
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
           stroke-linecap="round" stroke-linejoin="round">
           <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-          <path d="M10.325 4.317c.426 -1.756 2.924 -1.756 3.35 0a1.724 1.724 0 0 0 2.573 1.066c1.543 -.94 3.31 .826 2.37 2.37a1.724 1.724 0 0 0 1.065 2.572c1.756 .426 1.756 2.924 0 3.35a1.724 1.724 0 0 0 -1.066 2.573c.94 1.543 -.826 3.31 -2.37 2.37a1.724 1.724 0 0 0 -2.572 1.065c-.426 1.756 -2.924 1.756 -3.35 0a1.724 1.724 0 0 0 -2.573 -1.066c-1.543 .94 -3.31 -.826 -2.37 -2.37a1.724 1.724 0 0 0 -1.065 -2.572c-1.756 -.426 -1.756 -2.924 0 -3.35a1.724 1.724 0 0 0 1.066 -2.573c-.94 -1.543 .826 -3.31 2.37 -2.37c.996 .608 2.296 .07 2.572 -1.065z" />
-          <path d="M12 12m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
+          <path d="M4 5m0 2a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2z" />
+          <path d="M16 3v4" />
+          <path d="M8 3v4" />
+          <path d="M4 11h16" />
+          <path d="M8 15h2v2h-2z" />
         </svg>
       </div>
       <div class="how-copy">
         <span class="how-eyebrow">Étape 2</span>
-        <h3>On l'installe et on le configure</h3>
-        <p class="how-text">Installation offerte : sur place sur la Côte d'Azur, ou à distance en visio. Tout est prêt le
-          jour où vos voyageurs arrivent.</p>
+        <h3>Connectez votre channel manager ou Airbnb</h3>
+        <p class="how-text">Synchronisez votre calendrier : les accès se créent automatiquement à chaque réservation. Pas
+          de channel manager ? Créez vos clés d'accès manuellement.</p>
       </div>
     </div>
 
@@ -370,8 +379,7 @@
   <!-- What you need -->
   <section id="materiel">
     <h2>De quoi avez-vous besoin</h2>
-    <p class="section-sub">Un petit appareil connecté — qui vous appartient — plus sezaam. C'est tout. Et on vous
-      l'installe gratuitement.</p>
+    <p class="section-sub">Un petit appareil connecté — qui vous appartient — plus sezaam. C'est tout.</p>
 
     <div class="device-grid">
       <div class="device-card">
@@ -401,68 +409,50 @@
       guides d'installation détaillés arrivent bientôt sur notre blog.</p>
   </section>
 
-  <!-- Free installation -->
-  <section class="install" id="installation">
-    <h2>Installation offerte, zéro prise de tête</h2>
-    <p class="install-intro">On s'occupe du branchement, de la configuration et de vos premiers accès. Vous, vous
-      profitez.</p>
-
-    <div class="install-grid">
-      <div class="install-card">
-        <h3>📍 Sur place</h3>
-        <p>Sur la Côte d'Azur, on vient chez vous installer et tout configurer. Rien à faire de votre côté.</p>
-      </div>
-      <div class="install-card">
-        <h3>💻 À distance</h3>
-        <p>Partout ailleurs, on vous guide en visio, pas à pas. Simple, même sans être bricoleur.</p>
-      </div>
-    </div>
-
-    <p class="install-note">Installation <strong>offerte aux premiers inscrits</strong> — profitez-en pour tester en
-      avant-première avec le tarif de lancement.</p>
-
-    <a class="btn-hero" href="#inscription" data-cta="install">Réserver mon installation</a>
-  </section>
-
   <!-- Pricing -->
   <section class="pricing" id="tarifs">
     <h2>Tarifs</h2>
-    <p class="section-sub">Une seule règle : <strong>vous ne payez que les mois où votre bien est réellement utilisé.</strong>
-      Pas de forfait à l'année, même quand il est vide.</p>
 
     <div class="pricing-grid">
       <div class="price-card">
         <h3>À l'usage</h3>
-        <p class="price">5&nbsp;€<span class="price-unit">/ bien · mois</span></p>
-        <p class="price-sub">Seulement les mois où votre bien est utilisé</p>
+        <div class="price-block">
+          <p class="price">5&nbsp;€</p>
+          <p class="price-unit">par logement · par mois</p>
+        </div>
+        <p class="price-sub">Seulement les mois où votre logement est utilisé</p>
         <ul class="price-features">
-          <li>Un bien actif = 5 €</li>
-          <li>Bien inoccupé ? 0 € ce mois-là</li>
+          <li>Un logement actif = 5 €</li>
+          <li>Logement inoccupé ? 0 € ce mois-là</li>
           <li>Tous vos appareils inclus</li>
           <li>Résiliable à tout moment</li>
         </ul>
-        <a class="btn-hero" href="#inscription" data-cta="pricing-monthly">Réserver ma place</a>
+        <a class="btn-hero" href="#inscription" data-cta="pricing-monthly">S'inscrire</a>
       </div>
       <div class="price-card price-card--featured">
         <span class="price-badge">−20 %</span>
-        <h3>Engagement annuel</h3>
-        <p class="price">48&nbsp;€<span class="price-unit">/ bien · an</span></p>
+        <h3>Annuel</h3>
+        <div class="price-block">
+          <p class="price">48&nbsp;€</p>
+          <p class="price-unit">par logement · par an</p>
+        </div>
         <p class="price-sub">Soit 4 €/mois, usage illimité toute l'année</p>
         <ul class="price-features">
           <li>20 % de réduction</li>
+          <li>Installation offerte</li>
           <li>Ouvertures illimitées, 12 mois</li>
           <li>Tous vos appareils inclus</li>
           <li>Idéal pour louer toute l'année</li>
         </ul>
-        <a class="btn-hero" href="#inscription" data-cta="pricing-annual">Réserver ma place</a>
+        <a class="btn-hero" href="#inscription" data-cta="pricing-annual">S'inscrire</a>
       </div>
     </div>
 
     <div class="compare">
       <h3>Lequel choisir ?</h3>
       <p><strong>Vous louez surtout l'été ?</strong> → « À l'usage » : une saison revient à ~30 € seulement, au lieu d'un
-        forfait annuel complet.</p>
-      <p><strong>Vous louez toute l'année ?</strong> → « Engagement annuel » : 48 €, soit 20 % de moins que la formule
+        abonnement annuel complet.</p>
+      <p><strong>Vous louez toute l'année ?</strong> → « Annuel » : 48 €, soit 20 % de moins que la formule
         mensuelle.</p>
     </div>
   </section>
@@ -470,10 +460,10 @@
   <!-- Early access CTA -->
   <section class="cta" id="inscription">
     <div class="container">
-      <h2>Réservez votre installation offerte</h2>
+      <h2>Rejoignez la liste d'attente</h2>
 
-      <p>Le service ouvre bientôt ses inscriptions. Laissez votre e-mail et rejoignez la liste : vous serez
-        <strong>prévenu au lancement</strong>, avec <strong>l'installation offerte</strong> et le
+      <p>Le service ouvre bientôt ses inscriptions. Laissez votre e-mail et, si vous le souhaitez, précisez votre profil
+        et le nombre de vos logements : vous serez <strong>prévenu au lancement</strong>, avec le
         <strong>tarif de lancement</strong>.</p>
 
       <form class="waitlist-form" id="waitlist-form">
@@ -481,12 +471,42 @@
           <label for="website">Website</label>
           <input type="text" name="website" id="website" tabindex="-1" autocomplete="off">
         </div>
-        <input type="email" name="email" id="email" placeholder="votre@email.com" required autocomplete="email">
-        <button type="submit" id="submit-btn">Réserver ma place</button>
+
+        <div class="form-field">
+          <label for="email">Votre e-mail</label>
+          <input type="email" name="email" id="email" placeholder="vous@exemple.com" required autocomplete="email">
+        </div>
+
+        <fieldset class="form-field">
+          <legend>Vous êtes…</legend>
+          <div class="profile-options">
+            <label class="profile-option">
+              <input type="radio" name="hostType" value="particulier" checked>
+              <span>Particulier</span>
+            </label>
+            <label class="profile-option">
+              <input type="radio" name="hostType" value="professionnel">
+              <span>Professionnel<small>agence, conciergerie…</small></span>
+            </label>
+          </div>
+        </fieldset>
+
+        <div class="form-field">
+          <div class="field-label-row">
+            <label for="property-count">Nombre de logements</label>
+            <output id="property-count-output" for="property-count">1 logement</output>
+          </div>
+          <input type="range" id="property-count" name="propertyCount" min="1" max="100" step="1" value="1">
+          <div class="range-scale"><span>1</span><span>99+</span></div>
+        </div>
+
+        <p class="form-hint">Votre e-mail suffit. Vous pouvez modifier ces informations si vous le souhaitez.</p>
+
+        <button type="submit" id="submit-btn">S'inscrire</button>
       </form>
       <div id="form-message" class="form-message"></div>
-      <p class="privacy-note">Vos données ne sont utilisées que pour vous recontacter — <a
-          href="confidentialite.html">en savoir plus</a>.</p>
+      <p class="privacy-note">Vos données (e-mail, profil, nombre de logements) servent uniquement à vous recontacter et
+        à préparer le lancement — <a href="confidentialite.html">en savoir plus</a>.</p>
     </div>
 
   </section>
@@ -499,34 +519,32 @@
       <summary><span class="faq-question">De quels appareils ai-je besoin ?</span></summary>
       <p class="faq-answer">Un seul appareil suffit dans la plupart des cas — selon ce que vous voulez ouvrir : un module
         <strong>Shelly</strong> pour l'interphone/le portail, un <strong>SwitchBot Bot</strong> pour une installation sans
-        câblage, ou une serrure <strong>Nuki</strong> pour la porte de l'appartement. Vous gardez votre matériel, il vous
-        appartient.</p>
+        câblage, ou une serrure <strong>Nuki</strong> pour la porte de l'appartement. Le matériel vous appartient.</p>
     </details>
 
     <details class="faq-item">
       <summary><span class="faq-question">Mon interphone est-il compatible ?</span></summary>
       <p class="faq-answer">Oui — sezaam fonctionne avec tous les interphones. Certaines installations sont aussi simples
-        qu'un branchement de fils ; d'autres peuvent demander un peu plus de travail. C'est pour ça qu'on vous propose
-        l'installation offerte : on s'en occupe.</p>
+        qu'un branchement de fils ; d'autres peuvent demander un peu plus de travail.</p>
     </details>
 
     <details class="faq-item">
-      <summary><span class="faq-question">Qui fait l'installation ?</span></summary>
-      <p class="faq-answer">Nous ! L'installation est offerte aux premiers inscrits : on vient chez vous sur la Côte
-        d'Azur, ou on vous guide à distance en visio partout ailleurs. Tout est prêt avant l'arrivée de vos voyageurs.</p>
+      <summary><span class="faq-question">L'installation est-elle incluse ?</span></summary>
+      <p class="faq-answer">L'installation est offerte avec l'abonnement annuel : sur place sur la Côte d'Azur, ou à
+        distance en visio partout ailleurs. Besoin d'aide avec l'installation ? Pas de problème : on vous accompagne.</p>
     </details>
 
     <details class="faq-item">
       <summary><span class="faq-question">Comment suis-je facturé ?</span></summary>
-      <p class="faq-answer">À l'usage : <strong>5 € par bien et par mois, uniquement les mois où le bien est utilisé</strong>
-        (une ouverture de porte ce mois-là). Si votre bien est vacant, vous ne payez rien. Vous pouvez aussi choisir
-        l'engagement annuel : 48 € par bien et par an, usage illimité.</p>
+      <p class="faq-answer">À l'usage : <strong>5 € par logement et par mois, uniquement les mois où le logement est utilisé</strong>
+        (une ouverture de porte ce mois-là). Si votre logement est vacant, vous ne payez rien. Vous pouvez aussi choisir
+        l'abonnement annuel : 48 € par logement et par an, usage illimité.</p>
     </details>
 
     <details class="faq-item">
-      <summary><span class="faq-question">Que se passe-t-il si mon bien est vacant plusieurs mois ?</span></summary>
+      <summary><span class="faq-question">Que se passe-t-il si mon logement est vacant plusieurs mois ?</span></summary>
       <p class="faq-answer">Rien — aucun prélèvement. Avec la formule à l'usage, vous ne payez que les mois où une porte
-        est réellement ouverte. Un bien inoccupé ne vous coûte pas un centime.</p>
+        est réellement ouverte. Un logement inoccupé ne vous coûte pas un centime.</p>
     </details>
 
     <details class="faq-item">
@@ -544,8 +562,8 @@
 
     <details class="faq-item">
       <summary><span class="faq-question">Puis-je résilier à tout moment ?</span></summary>
-      <p class="faq-answer">Oui. La formule à l'usage est sans engagement : vous pouvez arrêter quand vous voulez.
-        L'engagement annuel court sur 12 mois, puis se renouvelle tant que vous le souhaitez.</p>
+      <p class="faq-answer">Oui. La formule à l'usage est résiliable à tout moment. L'abonnement annuel court sur 12 mois,
+        puis se renouvelle si vous le souhaitez.</p>
     </details>
 
     <p class="faq-note">Si vous avez d'autres questions n'hésitez pas à nous écrire !</p>

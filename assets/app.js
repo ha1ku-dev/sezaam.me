@@ -5,6 +5,7 @@
       const submitBtn = document.getElementById('submit-btn');
       const messageEl = document.getElementById('form-message');
       const honeypot = document.getElementById('website');
+      const propertyCountInput = document.getElementById('property-count');
 
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -15,10 +16,14 @@
         if (honeypot.value) return;
 
         // Validate email
-        if (!emailRegex.test(emailInput.value)) {
+        if (!emailRegex.test(emailInput.value.trim())) {
           showMessage('Veuillez entrer une adresse e-mail valide.', 'error');
           return;
         }
+
+        const hostTypeInput = form.querySelector('input[name="hostType"]:checked');
+        const hostType = hostTypeInput ? hostTypeInput.value : 'particulier';
+        const propertyCount = propertyCountInput ? parseInt(propertyCountInput.value, 10) : 1;
 
         // Disable button
         submitBtn.disabled = true;
@@ -30,7 +35,11 @@
           const response = await fetch('https://app.sezaam.me/api/waitlist', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ email: emailInput.value })
+            body: JSON.stringify({
+              email: emailInput.value.trim(),
+              hostType: hostType,
+              propertyCount: propertyCount
+            })
           });
 
           const data = await response.json();
@@ -43,12 +52,12 @@
           } else {
             showMessage(data.error || 'Une erreur est survenue. Réessayez.', 'error');
             submitBtn.disabled = false;
-            submitBtn.textContent = 'Réserver ma place';
+            submitBtn.textContent = 'S\'inscrire';
           }
         } catch (err) {
           showMessage('Une erreur est survenue. Réessayez.', 'error');
           submitBtn.disabled = false;
-          submitBtn.textContent = 'Réserver ma place';
+          submitBtn.textContent = 'S\'inscrire';
         }
       });
 
@@ -56,6 +65,61 @@
         messageEl.textContent = text;
         messageEl.className = 'form-message ' + type;
       }
+    })();
+
+    // Property count slider — 100 is displayed as "99+".
+    (function() {
+      var range = document.getElementById('property-count');
+      var output = document.getElementById('property-count-output');
+      if (!range || !output) return;
+
+      function update() {
+        var count = parseInt(range.value, 10);
+        var label = count >= 100 ? '99+ logements' : count + (count > 1 ? ' logements' : ' logement');
+        output.textContent = label;
+        range.setAttribute('aria-valuetext', label);
+      }
+
+      range.addEventListener('input', update);
+      update();
+    })();
+
+    // Mobile navigation.
+    (function() {
+      var toggle = document.querySelector('.nav-toggle');
+      var nav = document.getElementById('site-nav');
+      if (!toggle || !nav) return;
+
+      function setOpen(open) {
+        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+        toggle.setAttribute('aria-label', open ? 'Fermer le menu' : 'Ouvrir le menu');
+        nav.classList.toggle('is-open', open);
+      }
+
+      toggle.addEventListener('click', function() {
+        setOpen(toggle.getAttribute('aria-expanded') !== 'true');
+      });
+
+      nav.addEventListener('click', function(e) {
+        if (e.target.closest('a')) setOpen(false);
+      });
+
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') {
+          setOpen(false);
+          toggle.focus();
+        }
+      });
+
+      document.addEventListener('click', function(e) {
+        if (toggle.getAttribute('aria-expanded') !== 'true') return;
+        if (nav.contains(e.target) || toggle.contains(e.target)) return;
+        setOpen(false);
+      });
+
+      window.addEventListener('resize', function() {
+        if (window.innerWidth > 768) setOpen(false);
+      });
     })();
 
     (function() {
